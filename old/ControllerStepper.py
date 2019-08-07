@@ -1,4 +1,4 @@
-from ControllerBase import *
+from old.ControllerBase import *
 
 
 # Контроллер шаговых двигателей

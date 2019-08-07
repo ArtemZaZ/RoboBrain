@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from Robot import*
+from old.Robot import*
 
 def ARBUZIUS(prmNumber, prm):
     print('prmNumber:%s  param:%d' % (hex(prmNumber), prm))

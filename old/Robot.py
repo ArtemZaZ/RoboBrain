@@ -1,6 +1,4 @@
-from ControllerMotor import *
-from ControllerServo import *
-from ControllerStepper import *
+from old.ControllerStepper import *
 import queue
 
 crash = False
@@ -30,7 +28,7 @@ class Robot():
         self.StartRecv()    # Запускаем поток прослушивания шины
 
         self.StartSendOnline()      # Запускаем поток отправляющий онлайн метку
-        
+
     # Отправка сообщения в шину
     def Send(self, msg):
         try:
@@ -46,7 +44,7 @@ class Robot():
         except OSError:
             print("Reciving error")
         return msg
-      
+
     # Функция с циклом проверки онлайн флага и отправки онлайн метки, запускается как поток
     def SendOnlineThread(self):              
         global crash
@@ -160,7 +158,7 @@ class Robot():
     def StopRecv(self):
         self.stopRecv = True
         self.StartRecv = Robot.StartRecv                
-        
+
     # Для блокирования доступа к ф-ии будем присваивать ей значение пустой функции
     def ZeroFunction(self):
         pass
