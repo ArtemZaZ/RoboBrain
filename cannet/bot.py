@@ -1,6 +1,6 @@
 import struct
 import can
-import protocan
+from cannet import protocan
 import threading
 import time
 
@@ -52,11 +52,9 @@ class Robot(threading.Thread):
             device = (answer[2], answer[0], answer[3], answer[4])
             self._onlineDeviceList.append(device)
             return
-
         for device in self._deviceList:
-            if msg.arbitration_id == device.addr + 0xFF:
+            if msg.arbitration_id == device.address + 0xFF:
                 device.parseMsg(msg)
-
 
     def run(self):
         threading.Thread(target=self.__onlineThread, daemon=True).start()  # включаем посылку онлайн меток
