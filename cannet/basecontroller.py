@@ -42,7 +42,6 @@ class BaseController:
         if cmdNum not in self._commandDict.keys():
             raise ValueError("Комманды " + cmdNum.__repr__() + " не существует в данном контроллере")
 
-        #print(protocan.proto["headCommandFormat"] + self._commandDict[cmdNum][type], cmdNum, *cmdParams)
         cmdPackage = struct.pack(protocan.proto["headCommandFormat"] + self._commandDict[cmdNum][type], cmdNum, *cmdParams)
         msg = protocan.getDefaultMessage(self._addr, cmdPackage)
         self._owner.send(msg)

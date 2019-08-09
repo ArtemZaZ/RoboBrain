@@ -44,8 +44,8 @@ step.setPosition(0, 1000)
 try:
     while True:
         time.sleep(2)
-        #print(step.isConnected)
-        #step.checkConnectionRequest()
+        print(step.isConnected)
+        step.checkConnectionRequest()
 
 except KeyboardInterrupt:
     bus.flush_tx_buffer()
